@@ -34,7 +34,6 @@ INSTALLED_APPS = [
     "web",
     "dashboard",
     
-
     "admin_interface",
     "colorfield",
 
@@ -44,7 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
     'import_export',
+    "crispy_forms",
+    "crispy_bootstrap5",
 ]
 
 MIDDLEWARE = [
@@ -110,6 +112,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
 
 
 LANGUAGE_CODE = "en-us"

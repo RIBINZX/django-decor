@@ -72,14 +72,16 @@
 <h3 class="text-center pb-4">Trending Book</h3>
 <div class="container">
   <div class="row">
-    {% for book in book %}
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 ">
-      <a href="{% url 'web:detail' book.slug %}"> <div class="box">
-        <img src="{{ book.cover.url }}" class="img-fluid" alt="">
-        <strong>{{ book.title }}</strong>
-        <span>{{ book.author }}</span>
-        <p>{{ book.description }}</p></a>
-      </div>
+    {% for book in object_list %}
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+      <a href="{% url 'web:detail' book.slug %}">
+        <div class="box">
+          <img src="{{ book.cover.url }}" class="img-fluid" alt="">
+          <strong>{{ book.title }}</strong>
+          <span>{{ book.author }}</span>
+          <p>{{ book.description }}</p>
+        </div>
+      </a>
     </div>
     {% endfor %}
   </div>
