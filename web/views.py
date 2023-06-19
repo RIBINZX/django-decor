@@ -1,9 +1,11 @@
 from django.shortcuts import render
-from . models import Book
+from . models import Book,BookAuthor
 from django.urls import reverse_lazy
 
 from django.views.generic import ListView, DetailView, TemplateView
 from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
+
+from . forms import BookForm
 # Create your views here.
 # def index(request):
 #     books = Book.objects.all()
@@ -35,9 +37,30 @@ class BookDetailView(DetailView):
 class BookCreateView(CreateView):
     model = Book
     template_name = "web/addbook.html"
-    fields = '__all__'
+    form_class = BookForm
+    prepopulated_fields = {"slug": ("title",)}
     success_url = reverse_lazy('web:index')
 
 
+class BookAuthorCreateView(CreateView):
+    model = BookAuthor
+    template_name = "web/addauthor.html"
+    fields = '__all__'
+
+    success_url = reverse_lazy('web:addbook')
+
     
 
+class BookDeleteView(DeleteView):
+    model = Book
+    template_name = "web/deletebook.html"
+    success_url = reverse_lazy('web:index')
+
+
+
+class DltListView(ListView):
+    model = Book
+    template_name = "web/bookdelete.html"
+    
+
+    

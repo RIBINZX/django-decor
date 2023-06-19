@@ -1,15 +1,4 @@
-{% comment %} <form class="forms-sample" method="post" action="" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{form}}
-    <button type="submit" class="btn btn-gradient-primary mr-2">save</button>
-    <button type="button" onclick="history.back()" class="btn btn-light btn-outline-secondary">cancel</button>
-  </form> {% endcomment %}
-
-
-
-
-
-  <!DOCTYPE html>
+<!DOCTYPE html>
   <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -19,8 +8,7 @@
   </head>
   <body>
     {% load crispy_forms_tags %}
-    <h1 class="text-center mt-3 mb-5">add book</h1>
-    
+    <h1 class="text-center mt-3 mb-5">add author</h1>
     <div class="row">
         <div class="col-md-6 mx-auto grid-margin stretch-card">
           <div class="card">
@@ -28,10 +16,7 @@
               <form class="forms-sample" method="post" action="" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{form|crispy}}
-                <button type="submit" class="btn btn-primary mr-2">save</button>
-                <div>
-                    if author not exist <a href="{% url 'web:addauthor' %}"><div type="" class="btn btn-primary mr-2">add author</div></a>
-                </div>
+                <button type="submit" class="btn btn-gradient-primary mr-2">save</button>
                 {% comment %} <button type="button" onclick="history.back()" class="btn btn-light btn-outline-secondary">{% trans "Cancel" %}</button> {% endcomment %}
               </form>
             </div>

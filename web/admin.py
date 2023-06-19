@@ -3,6 +3,12 @@ from .models import Book,BookAuthor,TestingImport
 from import_export.admin import ImportExportActionModelAdmin
 # Register your models here.
 
+from django.contrib.auth.models import User, Group
+
+# To remove user,groups from admin panel
+admin.site.unregister(User)
+admin.site.unregister(Group)
+
 
 class BookInline(admin.TabularInline):
     model = Book
